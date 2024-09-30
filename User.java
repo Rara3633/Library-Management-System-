@@ -9,13 +9,13 @@ public class User {
     private ArrayList<String> borrowedBooks = new ArrayList<>();
     private Map<String, LocalDate> borrowedBooksDueDates = new HashMap<>();
 
-    // Constructor
+    
     public User(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    // Getters and Setters
+    
     public String getName() {
         return name;
     }
@@ -32,7 +32,7 @@ public class User {
         this.age = age;
     }
 
-    // Borrow a book
+    
     public void borrowBook(String bookTitle) {
         borrowedBooks.add(bookTitle);
         LocalDate dueDate = LocalDate.now().plusDays(14);
@@ -40,7 +40,7 @@ public class User {
         System.out.println("Book borrowed: " + bookTitle + ". Due date: " + dueDate);
     }
 
-    // Return a book
+    
     public void returnBook(String bookTitle) {
         if (borrowedBooks.contains(bookTitle)) {
             borrowedBooks.remove(bookTitle);
@@ -51,19 +51,19 @@ public class User {
         }
     }
 
-    // Print all borrowed books
+    
     public void printBorrowedBooks() {
         System.out.println("Borrowed Books: " + borrowedBooks);
     }
 
-    // Check due dates for all borrowed books
+    
     public void checkDueDates() {
         for (Map.Entry<String, LocalDate> entry : borrowedBooksDueDates.entrySet()) {
             System.out.println("Book: " + entry.getKey() + ", Due Date: " + entry.getValue());
         }
     }
 
-    // Check for overdue books
+    
     public void checkOverdueBooks() {
         LocalDate today = LocalDate.now();
         for (Map.Entry<String, LocalDate> entry : borrowedBooksDueDates.entrySet()) {
